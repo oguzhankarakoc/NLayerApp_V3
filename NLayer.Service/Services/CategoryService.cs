@@ -20,8 +20,8 @@ namespace NLayer.Service.Services
 
         public CategoryService(IGenericRepository<Category> repository, IUnitOfWork unitOfWork, ICategoryRepository categoryRepository, IMapper mapper) : base(repository, unitOfWork)
         {
-           _categoryRepository = categoryRepository;
             _mapper = mapper;
+            _categoryRepository = categoryRepository;
         }
 
         public async Task<CustomResponseDto<CategoryWithProductsDto>> GetSingleCategoryByIdWithProductsAsync(int categoryId)
