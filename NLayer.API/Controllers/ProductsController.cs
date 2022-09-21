@@ -12,14 +12,12 @@ namespace NLayer.API.Controllers
     {
         
         private readonly IMapper _mapper;
-        private readonly IService<Product> _service;
-        private readonly IProductService _productService;
+        private readonly IProductService _service;
 
         public ProductsController(IService<Product> service, IMapper mapper,IProductService productService)
         {
             _mapper = mapper;
-            _service = service;
-            this._productService = productService;
+            _service = productService;
         }
 
         //public ProductsController(IProductService productService)
@@ -31,7 +29,7 @@ namespace NLayer.API.Controllers
         [HttpGet("GetProductsWithCategory")]    // [HttpGet("[action]")] bu şekilde de yazılırsa olur aynı şekilde metottaki isim neyse o gelir değişken olarak.
         public async Task<IActionResult> GetProductsWithCategory()
         {
-            return CreateActionResult(await _productService.GetProductsWithCategory());
+            return CreateActionResult(await _service.GetProductsWithCategory());
         }
 
         //GET /api/products

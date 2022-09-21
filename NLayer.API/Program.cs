@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
@@ -7,6 +8,7 @@ using NLayer.Repository.Repositories;
 using NLayer.Repository.UnitOfWorks;
 using NLayer.Service.Mapping;
 using NLayer.Service.Services;
+using NLayer.Service.Validations;
 using System.Reflection;
 
 
@@ -14,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //builder.Services.AddRazorPages();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
