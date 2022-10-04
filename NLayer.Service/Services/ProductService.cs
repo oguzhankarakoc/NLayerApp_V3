@@ -4,11 +4,6 @@ using NLayer.Core.Models;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Service.Services
 {
@@ -16,7 +11,7 @@ namespace NLayer.Service.Services
     {
         private readonly IProductRepository _productReposiyory;
         private readonly IMapper _mapper;
-        public ProductService(IGenericRepository<Product> repository, IUnitOfWork unitOfWork,IMapper mapper,IProductRepository productRepository) : base(repository, unitOfWork)
+        public ProductService(IGenericRepository<Product> repository, IUnitOfWork unitOfWork, IMapper mapper, IProductRepository productRepository) : base(repository, unitOfWork)
         {
             _mapper = mapper;
             _productReposiyory = productRepository;
@@ -26,7 +21,7 @@ namespace NLayer.Service.Services
         {
             var products = await _productReposiyory.GetProductsWithCategory();
 
-            var productsDto= _mapper.Map<List<ProductWithCategoryDto>>(products); 
+            var productsDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
             return productsDto;
 
         }

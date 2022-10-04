@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLayer.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayer.Repository.Repositories
 {
@@ -45,7 +40,7 @@ namespace NLayer.Repository.Repositories
             return await _dbSet.FindAsync(id);
         }
 
-        public  void Remove(T entity)
+        public void Remove(T entity)
         {
             _dbSet.Remove(entity);
             //_context.Entry(entity).State = EntityState.Deleted; //Yukarıdaki değer de kullanılabilir aynı anlama geliyor! Sebep asenkron olmaması.
