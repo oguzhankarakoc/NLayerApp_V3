@@ -44,19 +44,19 @@ namespace NLayer.Repository
 
             foreach (var item in ChangeTracker.Entries())
             {
-                if(item.Entity is BaseEntity entityReference)
+                if (item.Entity is BaseEntity entityReference)
                 {
                     switch (item.State)
                     {
                         case EntityState.Added:
-                        {
-                            entityReference.CreatedDate= DateTime.Now;
+                            {
+                                entityReference.CreatedDate = DateTime.Now;
                                 break;
-                        }
+                            }
                         case EntityState.Modified:
                             {
-                                Entry(entityReference).Property(x=>x.CreatedDate).IsModified=false;
-                                entityReference.UpdatedDate= DateTime.Now;
+                                Entry(entityReference).Property(x => x.CreatedDate).IsModified = false;
+                                entityReference.UpdatedDate = DateTime.Now;
                                 break;
                             }
                     }

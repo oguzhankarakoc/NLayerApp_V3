@@ -6,7 +6,7 @@ using NLayer.Core.Services;
 
 namespace NLayer.Web
 {
-    public class NotFoundFilter<T>:IAsyncActionFilter where T : BaseEntity
+    public class NotFoundFilter<T> : IAsyncActionFilter where T : BaseEntity
     {
         private readonly IService<T> _service;
 
@@ -35,7 +35,7 @@ namespace NLayer.Web
 
             var errorViewModel = new ErrorViewModel();
             errorViewModel.Errors.Add($"{typeof(T).Name}({id}) is not found!");
-            context.Result = new RedirectToActionResult("Error","Home",errorViewModel);
+            context.Result = new RedirectToActionResult("Error", "Home", errorViewModel);
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
 
 namespace NLayer.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    
+
     public class CustomBaseController : ControllerBase
     {
         [NonAction]

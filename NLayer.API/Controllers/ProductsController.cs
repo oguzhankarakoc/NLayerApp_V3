@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.API.Filters;
 using NLayer.Core.DTOs;
@@ -11,11 +10,11 @@ namespace NLayer.API.Controllers
 
     public class ProductsController : CustomBaseController
     {
-        
+
         private readonly IMapper _mapper;
         private readonly IProductService _service;
 
-        public ProductsController(IMapper mapper,IProductService productService)
+        public ProductsController(IMapper mapper, IProductService productService)
         {
             _mapper = mapper;
             _service = productService;
@@ -41,7 +40,7 @@ namespace NLayer.API.Controllers
 
             var productsDtos = _mapper.Map<List<ProductDto>>(products.ToList());
 
-            return CreateActionResult (CustomResponseDto<List<ProductDto>>.Success(200, productsDtos));
+            return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productsDtos));
 
         }
 
