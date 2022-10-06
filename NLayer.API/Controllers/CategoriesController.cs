@@ -22,7 +22,7 @@ namespace NLayer.API.Controllers
         public async Task<IActionResult> GetAll()
         {
 
-            var categories= await _categoryService.GetAllAsync();
+            var categories = await _categoryService.GetAllAsync();
 
             var categoriesDto = _mapper.Map<List<CategoryDto>>(categories.ToList());
 

@@ -26,7 +26,7 @@ builder.Services.AddDbContext<AppDbContext>(
         });
     });
 
-builder.Services.AddHttpClient<ProductApiService>(opt=>
+builder.Services.AddHttpClient<ProductApiService>(opt =>
 {
     opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 });
