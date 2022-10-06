@@ -37,5 +37,11 @@ namespace NLayer.Web.Services
             return response.IsSuccessStatusCode;
         }
 
+        public async Task<ProductDto> GetByIdAsync(int id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<ProductDto>>($"products/{id}");
+            return response.Data;
+        }
+
     }
 }
